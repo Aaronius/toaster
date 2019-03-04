@@ -8,11 +8,21 @@
     <label>
       Message
       <input id="message" type="text" required>
+      <button id="selectDataElement">
+        Select Data Element
+      </button>
     </label>
 
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
     <script>
       var messageInput = document.getElementById('message');
+      var selectDataElementButton = document.getElementById('selectDataElement');
+
+      selectDataElementButton.addEventListener('click', function() {
+        window.extensionBridge.openDataElementSelector().then(function(dataElement) {
+          messageInput.value += dataElement;
+        });
+      });
 
       window.extensionBridge.register({
         init: function(info) {
