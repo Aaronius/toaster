@@ -5,23 +5,30 @@
     <title>Action</title>
   </head>
   <body>
-    Action Template
+    <label>
+      Message
+      <input id="message" type="text" required>
+    </label>
 
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
     <script>
+      var messageInput = document.getElementById('message');
+
       window.extensionBridge.register({
         init: function(info) {
           if (info.settings) {
-            // TODO Populate form values from persisted settings.
+            messageInput.value = info.settings.message;
           }
         },
 
         getSettings: function() {
-          // TODO Return settings object from form values.
+          return {
+            message: messageInput.value
+          };
         },
 
         validate: function() {
-          // TODO Return whether settings are valid.
+          return messageInput.reportValidity();
         }
       });
     </script>
