@@ -1,0 +1,32 @@
+{
+  "displayName": "Toaster",
+  "name": "toaster",
+  "platform": "web",
+  "version": "1.0.0",
+  "description": "Show toast notifications to users.",
+  "author": {
+    "name": "Aaron Hardy"
+  },
+  "viewBasePath": "src/view/",
+  "configuration": {
+    "viewPath": "configuration/configuration.html",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "actions": [
+    {
+      "displayName": "Show Toast",
+      "name": "show-toast",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      },
+      "libPath": "src/lib/actions/showToast.js",
+      "viewPath": "actions/showToast.html"
+    }
+  ]
+}
