@@ -5,23 +5,30 @@
     <title>Extension Configuration</title>
   </head>
   <body>
-    Extension Configuration Template
+    <label>
+      Toast Display Duration (milliseconds)
+      <input id="duration" type="number" value="2000" min="0" required>
+    </label>
 
     <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
     <script>
+      var durationInput = document.getElementById('duration');
+
       window.extensionBridge.register({
         init: function(info) {
           if (info.settings) {
-            // TODO Populate form values from persisted settings.
+            durationInput.value = info.settings.duration;
           }
         },
 
         getSettings: function() {
-          // TODO Return settings object from form values.
+          return {
+            duration: Number(durationInput.value)
+          };
         },
 
         validate: function() {
-          // TODO Return whether settings are valid.
+          return durationInput.reportValidity();
         }
       });
     </script>
