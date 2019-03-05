@@ -13,7 +13,14 @@
     "schema": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",
-      "properties": {}
+      "properties": {
+        "duration": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": ["duration"],
+      "additionalProperties": false
     }
   },
   "actions": [
@@ -23,7 +30,14 @@
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
-        "properties": {}
+        "properties": {
+          "message": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["message"],
+        "additionalProperties": false
       },
       "libPath": "src/lib/actions/showToast.js",
       "viewPath": "actions/showToast.html"
